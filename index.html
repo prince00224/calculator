@@ -1,0 +1,129 @@
+<html>
+
+<head>
+    <title>
+        calculater
+    </title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: rosybrown;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .main {
+            height: 400px;
+            width: 300px;
+            background-color: azure;
+            border-radius: 10px;
+
+        }
+
+        .output {
+            height: 25%;
+            background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            padding: 25px;
+            border-radius: 40px;
+            margin: 20px;
+
+        }
+
+        .output h1 {
+            color: wheat;
+
+        }
+
+        .input {
+            height: 75%;
+            width: 100%;
+            background-color: beige;
+            display: flex;
+            flex-wrap: wrap;
+            gap: px;
+            padding: 20px;
+
+        }
+
+        button {
+            height: 60px;
+            width: 60px;
+            border: none;
+            background-color: #c4c4c4;
+            border-radius: 50px;
+            font-size: 25px;
+
+
+        }
+
+        #delete {
+            background-color: red;
+
+        }
+
+        #equal {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="output">
+            <h1>0</h1>
+
+        </div>
+        <div class="input">
+            <div class="button">
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button id="delete">X</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>+</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>-</button>
+                <button>*</button>
+                <button>0</button>
+                <button>/</button>
+                <button id="equal">=</button>
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        const output = document.querySelector("h1");
+        document.querySelectorAll("button").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                if (btn.id === "delete") output.textContent = "0";
+                else if (btn.id === "equal")
+                    output.textContent = eval(output.textContent);
+                else
+                    output.textContent =
+                        output.textContent === "0"
+                            ? btn.textContent
+                            : output.textContent + btn.textContent;
+            });
+        });
+    </script>
+</body>
+
+</html>
